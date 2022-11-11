@@ -3,6 +3,7 @@ import './App.scss';
 import { useBEM } from './hooks/useBEM';
 import { useSelector } from 'react-redux';
 import { selectIsModalShow, selectView } from './store/slices/gameSlice';
+import ScoreSect from './components/scoreSect/ScoreSect';
 
 function App() {
   const [B,E] = useBEM("App")
@@ -12,6 +13,10 @@ function App() {
 
   return (
     <div className={B()}>
+      <main className={E('body')}>
+        <ScoreSect/>
+      </main>
+      
     </div>
   );
 }
