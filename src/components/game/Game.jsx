@@ -18,17 +18,17 @@ const Game = () => {
 
             <main className={E('btn-cont')}>
                 <section className={E('btn-sect')}>
-                    <GameBtn/>
+                    <GameBtn type={"scissors"}/>
                 </section>
                 
                 <section className={E('btn-sect')}>
-                    <GameBtn/>
-                    <GameBtn/>
+                    <GameBtn type={"spock"}/>
+                    <GameBtn type={"paper"}/>
                 </section>
-                
+
                 <section className={E('btn-sect')}>
-                    <GameBtn/>
-                    <GameBtn/>
+                    <GameBtn type={"lizard"}/>
+                    <GameBtn type={"rock"}/>
                 </section>
             </main>
         </div>

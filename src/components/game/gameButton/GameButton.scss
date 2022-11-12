@@ -1,10 +1,25 @@
 $btn-dim: 136px;
 
 .game-btn{
+    position: relative;
+
     height: $btn-dim;
     width: $btn-dim;
 
     background-color: white;
 
     border-radius: 240px;
+
+    display: grid;
+    place-content: center;
+
+    // box-shadow: inset 0 6px 0 0 #d2d7e2, 0 6px 0 0 white;
+
+    border: 16px solid blue;
+
+    &__border{
+        position: absolute;
+        top: -17px;
+        left: -17px;
+    }
 }
