@@ -1,4 +1,4 @@
-import { useBEM } from "../../hooks/useBEM"
+import { useBEM } from "../../../hooks/useBEM"
 
 const GameBtn = () => {
     const [B,E] = useBEM('game-btn')
@@ -10,4 +10,4 @@ const GameBtn = () => {
     )
 }
 
-export default Game
+export default GameBtn

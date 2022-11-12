@@ -1,4 +1,5 @@
-import { useBEM } from "../../hooks/useBEM"
+import { useBEM } from "../../hooks/useBEM";
+import GameBtn from "./gameButton/GameButton";
 
 const Game = () => {
     const [B,E] = useBEM('game')
@@ -15,8 +16,20 @@ const Game = () => {
                 />
             </section>
 
-            <main>
+            <main className={E('btn-cont')}>
+                <section className={E('btn-sect')}>
+                    <GameBtn/>
+                </section>
                 
+                <section className={E('btn-sect')}>
+                    <GameBtn/>
+                    <GameBtn/>
+                </section>
+                
+                <section className={E('btn-sect')}>
+                    <GameBtn/>
+                    <GameBtn/>
+                </section>
             </main>
         </div>
     )
