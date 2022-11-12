@@ -16,6 +16,12 @@
         place-items: center;
     }
 
+    &__pentagon{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
     &__btn-cont{
         display: flex;
         flex-direction: column;

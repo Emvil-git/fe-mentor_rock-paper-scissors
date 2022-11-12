@@ -1,7 +1,9 @@
+import { useState } from "react"
 import { useBEM } from "../../../hooks/useBEM"
 
 const GameBtn = ({type}) => {
     const [B,E] = useBEM('game-btn')
+    const [isPressed, setIsPressed] = useState(false)
 
     // TODO: cleanup type handling
     
@@ -90,8 +92,13 @@ const GameBtn = ({type}) => {
         }
     }
 
+    const handlePressStyle = () => {
+        if (isPressed) return B('pressed');
+        return B();
+    }
+
     return(
-        <div style={shadowColor()} className={B()}>
+        <div onMouseDown={() => {setIsPressed(true)}} onMouseUp={() => setIsPressed(false)} style={shadowColor()} className={handlePressStyle()}>
             <svg className={E('border')} height="138" width="138">
             <defs>
                 {handleBorderColor()}
@@ -102,7 +109,7 @@ const GameBtn = ({type}) => {
             </defs>
                 <circle cx="69" cy="69" r="60" stroke={borderId()} stroke-width="18" fill="none" />
             </svg>
-            <img src={handleIcon()} alt="" />
+            <img className={E('icon')} src={handleIcon()} alt="" />
         </div>
     )
 }
