@@ -1,0 +1,16 @@
+@import '../../_global-vars.scss';
+
+.game{
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    &__bg-trick{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: grid;
+        place-items: center;
+    }
+    // background-image: url('/images/bg-pentagon.svg');
+}

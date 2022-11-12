@@ -1,13 +1,13 @@
 import { useBEM } from "../../hooks/useBEM"
 
-const Results = () => {
-    const [B,E] = useBEM('results')
+const GameBtn = () => {
+    const [B,E] = useBEM('game-btn')
 
     return(
         <div className={B()}>
-            results
+            
         </div>
     )
 }
 
-export default Results
+export default Game

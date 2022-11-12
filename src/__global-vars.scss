@@ -9,4 +9,4 @@ $text-dark: hsl(229, 25%, 31%);
 $text-score: hsl(229, 64%, 46%);
 $outline-header: hsl(217, 16%, 45%);
 
-$gradient-bg: hsl(214, 47%, 23%) to hsl(237, 49%, 15%);
+$gradient-bg: radial-gradient(circle, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
