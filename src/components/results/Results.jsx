@@ -1,7 +1,7 @@
 import { useBEM } from "../../hooks/useBEM"
 import { useSelector } from "react-redux"
 import { useAppDispatch } from "../../hooks/reduxHooks"
-import { selectHouseChoice, selectPlayerChoice, selectScore, setPlayerChoice, setHouseChoice } from "../../store/slices/gameSlice"
+import { selectHouseChoice, selectPlayerChoice, setPlayerChoice, setHouseChoice, addScore } from "../../store/slices/gameSlice"
 import GameBtn from "../game/gameButton/GameButton"
 
 const Results = () => {
@@ -43,10 +43,12 @@ const Results = () => {
     const choiceCond = condArr.find(cond => cond.val === player);
 
     const results = () => {
+        console.log('RESULTS!')
         switch(true){
             case player === house:
                 return "DRAW!"
             case choiceCond.win.includes(house):
+                dispatch(addScore())
                 return "YOU WIN"
             case choiceCond.lose.includes(house):
                 return "YOU LOSE"

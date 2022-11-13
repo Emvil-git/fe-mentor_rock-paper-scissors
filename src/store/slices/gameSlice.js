@@ -28,10 +28,13 @@ export const gameSlice = createSlice({
         setScore: (state, action) => {
             state.score = action.payload
         },
+        addScore: (state) => {
+            state.score++
+        }
     },
 })
 
-export const { setView, setIsModalShow, setPlayerChoice, setHouseChoice, setScore } = gameSlice.actions;
+export const { setView, setIsModalShow, setPlayerChoice, setHouseChoice, setScore, addScore } = gameSlice.actions;
 
 export const selectView = (state) => state.gameSlice.view;
 export const selectIsModalShow = (state) => state.gameSlice.isModalShow;
