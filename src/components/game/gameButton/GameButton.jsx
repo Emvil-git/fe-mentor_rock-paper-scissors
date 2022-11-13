@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { useBEM } from "../../../hooks/useBEM"
 import { useAppDispatch } from "../../../hooks/reduxHooks"
-import { setPlayerChoice } from "../../../store/slices/gameSlice"
+import { setHouseChoice, setPlayerChoice } from "../../../store/slices/gameSlice"
 
-const GameBtn = ({type}) => {
+const GameBtn = ({type, isStatic}) => {
     const [B,E] = useBEM('game-btn')
     const [isPressed, setIsPressed] = useState(false)
 
@@ -97,19 +97,44 @@ const GameBtn = ({type}) => {
 
     const mouseUp = () => {
         setIsPressed(false);
+
+        const choiceArr = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+        const randInd = Math.floor(Math.random() * (4 + 1))
+        dispatch(setHouseChoice(choiceArr[randInd]))
+
         dispatch(setPlayerChoice(type))
     }
 
+    const dispStatic = () => {
+        if(isStatic) return (
+            <div style={styleData.boxShadow} className={B('static')}>
+                <svg className={E('border')} height="138" width="138">
+                <defs>
+                    {styleData.svgDef()}
+                </defs>
+                    <circle cx="69" cy="69" r="60" stroke={styleData.borderId} stroke-width="18" fill="none" />
+                </svg>
+                <img className={E('icon')} src={styleData.imgUrl} alt="" />
+            </div>
+        )
+
+        return (
+            <div onMouseDown={() => {setIsPressed(true)}} onMouseUp={() => mouseUp()} style={styleData.boxShadow} className={handlePressStyle()}>
+                <svg className={E('border')} height="138" width="138">
+                <defs>
+                    {styleData.svgDef()}
+                </defs>
+                    <circle cx="69" cy="69" r="60" stroke={styleData.borderId} stroke-width="18" fill="none" />
+                </svg>
+                <img className={E('icon')} src={styleData.imgUrl} alt="" />
+            </div>
+        )
+    }
+
     return(
-        <div onMouseDown={() => {setIsPressed(true)}} onMouseUp={() => mouseUp()} style={styleData.boxShadow} className={handlePressStyle()}>
-            <svg className={E('border')} height="138" width="138">
-            <defs>
-                {styleData.svgDef()}
-            </defs>
-                <circle cx="69" cy="69" r="60" stroke={styleData.borderId} stroke-width="18" fill="none" />
-            </svg>
-            <img className={E('icon')} src={styleData.imgUrl} alt="" />
-        </div>
+        <>
+         {dispStatic()}
+        </>
     )
 }
 

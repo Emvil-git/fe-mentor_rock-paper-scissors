@@ -3,7 +3,7 @@ import './App.scss';
 import { useBEM } from './hooks/useBEM';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from './hooks/reduxHooks';
-import { selectIsModalShow, selectView, setIsModalShow } from './store/slices/gameSlice';
+import { selectIsModalShow, selectView, setIsModalShow, selectPlayerChoice } from './store/slices/gameSlice';
 import ScoreSect from './components/scoreSect/ScoreSect';
 import Game from './components/game/Game';
 import Results from './components/results/Results';
@@ -15,14 +15,17 @@ function App() {
 
   const view = useSelector(selectView);
   const isModalShow = useSelector(selectIsModalShow);
+  const playerChoice = useSelector(selectPlayerChoice);
 
   const changeView = () => {
-    switch(view) {
-      case 'game':
-        return <Game/>
-      case 'results':
-        return <Results/>
-    }
+    // switch(view) {
+    //   case 'game':
+    //     return <Game/>
+    //   case 'results':
+    //     return <Results/>
+    // }
+    if (playerChoice) return <Results/>
+    return <Game/>
   }
 
   return (
