@@ -6,7 +6,7 @@ $btn-dim: 136px;
     height: $btn-dim;
     width: $btn-dim;
 
-    background-color: white;
+    background: linear-gradient(#f7f7f7 0%,#f7f7f7 60%,#e1e1e1 100%);
 
     border-radius: 240px;
 
@@ -19,9 +19,19 @@ $btn-dim: 136px;
 
     transition: 0.1s ease-in-out;
 
+    &:hover{
+        background: linear-gradient(#ffffff,#f7f7f7);
+    }
+
     &--static{
         margin: 53px 53px 65px 53px;
-        transform: scale(1.75);
+        transform: scale(0.5);
+        opacity: 0;
+        animation: static-show 0.1s ease-in-out 0.3s 1 forwards;
+
+        &:nth-of-type(2){
+            animation: static-show 0.1s ease-in-out 1s 1 forwards;
+        }
     }
 
     &--pressed{
@@ -39,5 +49,22 @@ $btn-dim: 136px;
         -moz-user-select: none;
         -webkit-user-select: none;
         user-select: none;
+    }
+}
+
+@keyframes static-show {
+    0%{
+        opacity: 1;
+        transform: scale(0.5);
+    }
+
+    50%{
+        opacity: 1;
+        transform: scale(2)
+    }
+
+    100%{
+        opacity: 1;
+        transform: scale(1.75)
     }
 }

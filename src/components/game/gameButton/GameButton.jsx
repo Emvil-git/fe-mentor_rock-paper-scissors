@@ -102,7 +102,11 @@ const GameBtn = ({type, isStatic}) => {
         const randInd = Math.floor(Math.random() * (4 + 1))
         dispatch(setHouseChoice(choiceArr[randInd]))
 
-        dispatch(setPlayerChoice(type))
+        setTimeout(
+            () => {
+                dispatch(setPlayerChoice(type))
+            }
+            , 100);
     }
 
     const dispStatic = () => {

@@ -48,7 +48,6 @@ const Results = () => {
             case player === house:
                 return "DRAW!"
             case choiceCond.win.includes(house):
-                dispatch(addScore())
                 return "YOU WIN"
             case choiceCond.lose.includes(house):
                 return "YOU LOSE"
@@ -62,12 +61,18 @@ const Results = () => {
 
     console.log(choiceCond)
 
+    if (choiceCond.win.includes(house)) {
+        setTimeout(()=>{
+            dispatch(addScore())
+        }, 1400)
+    }
+
     return(
         <div className={B()}>
             <main className={E('cont')}>
                 <section className={E('choice')}>
                     <h3 className={E('choice-label')}>YOU PICKED</h3>
-                    <GameBtn type={player} isStatic={true}/>
+                    <GameBtn id="player-btn" type={player} isStatic={true}/>
                 </section>
                 <section className={E('res')}>
                     <span className={E('res-label')}>{results()}</span>
@@ -75,7 +80,7 @@ const Results = () => {
                 </section>
                 <section className={E('choice')}>
                     <h3 className={E('choice-label')}>THE HOUSE PICKED</h3>
-                    <GameBtn type={house} isStatic={true}/>
+                    <GameBtn id="house-btn" type={house} isStatic={true}/>
                 </section>
             </main>
         </div>
