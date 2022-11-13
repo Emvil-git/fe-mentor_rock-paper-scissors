@@ -35,7 +35,9 @@ function App() {
         <ScoreSect/>
         {changeView()}
       </main>
+      <section className={E('btn-sect')}>
       <button onClick={() => {dispatch(setIsModalShow(true))}} className={E('rules-btn')}>RULES</button>
+      </section>
     </div>
   );
 }

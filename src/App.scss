@@ -23,10 +23,15 @@
     // justify-content: center;
   }
 
+  &__btn-sect{
+    display: flex;
+    justify-content: end;
+    width: 100vw;
+    padding-bottom: 36px;
+    padding-right: 36px;
+  }
+
   &__rules-btn{
-    position: absolute;
-    bottom: 32px;
-    right: 32px;
     padding: 8px 32px;
     font-size: 16px;
     font-weight: 700;
@@ -41,6 +46,27 @@
     &:hover{
       color: $white;
       border-color: $white;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .App{
+    &__body{
+      width: 75vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 916px) {
+  .App{
+    &__body{
+      width: 75vw;
+    }
+
+    &__rules-btn{
+      position: relative;
+      margin-top: 72px;
     }
   }
 }
