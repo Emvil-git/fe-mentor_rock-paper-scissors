@@ -1,5 +1,16 @@
 @import '../../_global-vars.scss';
 
+#player-choice, #player-choice-win{
+    grid-area: player;
+}
+#house-choice, #house-choice-win{
+    grid-area: house;
+}
+
+// #player-choice-win, #house-choice-win{
+//     animation: win-show 0.5s ease-in-out 1s 1 forwards;
+// }
+
 .results{
     height: 100%;
 
@@ -9,18 +20,22 @@
     margin-bottom: 10%;
 
     &__cont{
-        display: flex;
+        display: grid;
+        grid-template-areas: 'player res house';
     }
 
     &__choice{
         margin: 0 48px;
+
+        display: flex;
+        flex-direction: column;
 
         &-label{
             font-size: 24px;
             // font-weight: 700;
             color: $white;
             letter-spacing: 4px;
-            margin: 0 0 104px 0;
+            margin: 0 0 32px 0;
         }
 
         &:first-of-type .game-btn{
@@ -51,11 +66,13 @@
     &__res{
         display: flex;
         flex-direction: column;
-        align-content: center;
+        align-items: center;
         justify-content: center;
         width: 0;
 
         overflow: hidden;
+
+        grid-area: res;
 
         animation: res-show 0.5s ease-in-out 1s 1 forwards;
 
@@ -71,7 +88,7 @@
         }
 
         &-btn{
-            width: 100%;
+            width: 246px;
             font-size: 16px;
             background: $white;
             color: $text-dark;
@@ -109,7 +126,7 @@
     }
 
     100%{
-        width: 224px;
+        width: 100%;
         overflow: visible;
     }
 }
@@ -124,5 +141,72 @@
     100%{
         visibility: visible;
         opacity: 1;
+    }
+}
+
+@keyframes win-show {
+    0%{
+        box-shadow: 0 0 0 0 white;
+    }
+
+    100%{
+        box-shadow: 0 0 0 24px white;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .results{
+        margin-bottom: 0;
+    }
+}
+@media only screen and (max-width: 744px) {
+    .results{
+        margin-top: -8%;
+        transform: scale(0.75);
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .results{
+        margin-top: 24px;
+        transform: scale(0.85);
+
+        &__cont{
+            grid-template-areas: 'player house'
+            'res res';
+        }
+
+        &__choice{
+            margin: 0 24px;
+            flex-direction: column-reverse;
+            &-label{
+                margin-bottom: 16px;
+                margin-top: 24px;
+            }
+        }
+
+        &__res{
+            // width: 100%;
+            transform: scale(1.15) translateY(36px);
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .results{
+        &__choice{
+            margin: 0;
+           transform: scale(0.85);
+            &-label{
+                margin-top: 40px;
+                transform: scale(1.15);
+            }
+        }
+
+        &__res{
+            // width: 100%;
+            transform: scale(1.15) translateY(24px);
+        }
+
     }
 }
