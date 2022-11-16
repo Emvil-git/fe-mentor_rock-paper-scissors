@@ -12,10 +12,10 @@ const RulesModal = () => {
                 <header className={E('header')}>
                     <h2>RULES</h2>
                     <div onClick={() => {dispatch(setIsModalShow(false))}} className={E('close-cont')}>
-                        <img className={E('icon')} src="/images/icon-close.svg" alt="" />
+                        <img className={E('icon')} src="images/icon-close.svg" alt="" />
                     </div>
                 </header>
-                <img className={E('rules-img')} src="/images/image-rules-bonus.svg" alt="rules of the game" />
+                <img className={E('rules-img')} src="images/image-rules-bonus.svg" alt="rules of the game" />
             </main>
         </div>
     )

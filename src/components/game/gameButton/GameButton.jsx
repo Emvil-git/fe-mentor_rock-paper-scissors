@@ -13,7 +13,7 @@ const GameBtn = ({type, isStatic, isWinner}) => {
         switch(type){
             case 'scissors':
                 return {
-                    imgUrl: "/images/icon-scissors.svg",
+                    imgUrl: "images/icon-scissors.svg",
                     svgDef: () => {
                         return (
                             <linearGradient id="linear-sc" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -28,7 +28,7 @@ const GameBtn = ({type, isStatic, isWinner}) => {
 
             case 'spock':
                 return {
-                    imgUrl: "/images/icon-spock.svg",
+                    imgUrl: "images/icon-spock.svg",
                     svgDef: () => {
                         return (
                             <linearGradient id="linear-sp" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -43,7 +43,7 @@ const GameBtn = ({type, isStatic, isWinner}) => {
 
             case 'paper':
                 return {
-                    imgUrl: "/images/icon-paper.svg",
+                    imgUrl: "images/icon-paper.svg",
                     svgDef: () => {
                         return (
                             <linearGradient id="linear-pp" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -58,7 +58,7 @@ const GameBtn = ({type, isStatic, isWinner}) => {
 
             case 'lizard':
                 return {
-                    imgUrl: "/images/icon-lizard.svg",
+                    imgUrl: "images/icon-lizard.svg",
                     svgDef: () => {
                         return (
                             <linearGradient id="linear-lz" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -73,7 +73,7 @@ const GameBtn = ({type, isStatic, isWinner}) => {
 
             case 'rock':
                 return {
-                    imgUrl: "/images/icon-rock.svg",
+                    imgUrl: "images/icon-rock.svg",
                     svgDef: () => {
                         return (
                             <linearGradient id="linear-rk" x1="0%" y1="0%" x2="0%" y2="100%">
