@@ -28,7 +28,7 @@
   &__btn-sect{
     position: absolute;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     // width: 100vw;
     padding-bottom: 36px;
     padding-right: 36px;
@@ -94,7 +94,7 @@
     &__btn-sect{
       position: relative;
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
       // width: 100vw;
       padding-bottom: 52px;
       padding-right: 0;

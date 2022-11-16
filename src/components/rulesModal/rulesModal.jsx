@@ -11,9 +11,11 @@ const RulesModal = () => {
             <main className={E('cont')}>
                 <header className={E('header')}>
                     <h2>RULES</h2>
-                    <img onClick={() => {dispatch(setIsModalShow(false))}} className={E('icon')} src="/images/icon-close.svg" alt="" />
+                    <div onClick={() => {dispatch(setIsModalShow(false))}} className={E('close-cont')}>
+                        <img className={E('icon')} src="/images/icon-close.svg" alt="" />
+                    </div>
                 </header>
-                <img src="/images/image-rules-bonus.svg" alt="rules of the game" />
+                <img className={E('rules-img')} src="/images/image-rules-bonus.svg" alt="rules of the game" />
             </main>
         </div>
     )
