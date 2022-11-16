@@ -60,13 +60,13 @@ const Results = () => {
     }
 
     const playerWin = () => {
-        if (choiceCond.win.includes(house)) return "player-choice-win"
-        return "player-choice";
+        if (choiceCond.win.includes(house)) return E('placeholder', 'win')
+        return E('placeholder');
     }
 
     const houseWin = () => {
-        if (choiceCond.lose.includes(house)) return "house-choice-win"
-        return "house-choice";
+        if (choiceCond.lose.includes(house)) return E('placeholder', 'win')
+        return E('placeholder');
     }
 
     console.log(choiceCond)
@@ -82,7 +82,10 @@ const Results = () => {
             <main className={E('cont')}>
                 <section id={playerWin()} className={E('choice')}>
                     <h3 className={E('choice-label')}>YOU PICKED</h3>
-                    <GameBtn id="player-btn" type={player} isStatic={true}/>
+                    <div className={E('btn-wrap')}>
+                        <div className={playerWin()}></div>
+                        <GameBtn id="player-btn" type={player} isStatic={true}/>
+                    </div>
                 </section>
                 <section className={E('res')}>
                     <span className={E('res-label')}>{results()}</span>
@@ -90,7 +93,10 @@ const Results = () => {
                 </section>
                 <section id={houseWin()} className={E('choice')}>
                     <h3 className={E('choice-label')}>THE HOUSE PICKED</h3>
-                    <GameBtn id="house-btn" type={house} isStatic={true}/>
+                    <div className={E('btn-wrap')}>
+                        <div className={houseWin()}></div>
+                        <GameBtn id="house-btn" type={house} isStatic={true}/>
+                    </div>
                 </section>
             </main>
         </div>

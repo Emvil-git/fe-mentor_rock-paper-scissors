@@ -3,7 +3,7 @@ import { useBEM } from "../../../hooks/useBEM"
 import { useAppDispatch } from "../../../hooks/reduxHooks"
 import { setHouseChoice, setPlayerChoice } from "../../../store/slices/gameSlice"
 
-const GameBtn = ({type, isStatic}) => {
+const GameBtn = ({type, isStatic, isWinner}) => {
     const [B,E] = useBEM('game-btn')
     const [isPressed, setIsPressed] = useState(false)
 
@@ -109,9 +109,16 @@ const GameBtn = ({type, isStatic}) => {
             , 100);
     }
 
+    // const win = () => {
+    //     const boxShad = styleData.boxShadow.boxShadow;
+
+    //     if (isWinner) return {boxShadow : `${boxShad}, 0 0 0 72 white`}
+    // }
+
     const dispStatic = () => {
-        if(isStatic) return (
-            <div style={styleData.boxShadow} className={B('static')}>
+        if(isStatic) {
+            return (
+            <div style={styleData.boxShadow} id={(isWinner) ? 'winner' : 'normal'} className={B('static')}>
                 <svg className={E('border')} height="138" width="138">
                 <defs>
                     {styleData.svgDef()}
@@ -120,7 +127,7 @@ const GameBtn = ({type, isStatic}) => {
                 </svg>
                 <img className={E('icon')} src={styleData.imgUrl} alt="" />
             </div>
-        )
+        )}
 
         return (
             <div onMouseDown={() => {setIsPressed(true)}} onMouseUp={() => mouseUp()} style={styleData.boxShadow} className={handlePressStyle()}>
